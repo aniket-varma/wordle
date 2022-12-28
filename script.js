@@ -10,7 +10,7 @@ const getWord = () => {
     fetch('https://random-word-api.herokuapp.com/word?length=5').then(response => {
         return response.json();
     }).then(json => {
-        console.log(json);
+        // console.log(json);
         word=json[0].toUpperCase();
     }).catch(err=> console.log(err));
 }
