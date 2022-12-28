@@ -7,10 +7,11 @@ const keys=[
 let word;
 
 const getWord = () => {
-    fetch('http://localhost:8000/word').then(response => {
+    fetch('https://random-word-api.herokuapp.com/word?length=5').then(response => {
         return response.json();
     }).then(json => {
-        word=json.toUpperCase();
+        console.log(json);
+        word=json[0].toUpperCase();
     }).catch(err=> console.log(err));
 }
 getWord();
