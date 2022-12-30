@@ -7,7 +7,7 @@
 
 ## Deployment
 
-- Link: https://aniket-varma.github.io/wordle.github.io/
+- Link: https://aniket-varma.github.io/wordle/
 
 ## Tech-Stack Used
 
