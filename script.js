@@ -62,6 +62,47 @@ const clearRow = () => {
     }
     currentCol=0;
 }
+const clearBoard = () => {
+    for(let currentRow=0;currentRow<6;currentRow++){
+        for(let i=0;i<guessRows[currentRow].length-1;i++){
+            const curr=document.getElementById('guessRow-'+currentRow+'-tile-'+i);
+            curr.textContent='';
+            guessRows[currentRow][currentCol]='';
+            curr.setAttribute('data','');
+            if(curr.classList.contains('green-col')){
+                curr.classList.remove('green-col');
+            }
+            if(curr.classList.contains('yellow-col')){
+                curr.classList.remove('yellow-col');
+            }
+            if(curr.classList.contains('grey-col')){
+                curr.classList.remove('grey-col');
+            }
+            if(curr.classList.contains('flip')){
+                curr.classList.remove('flip');
+            }
+        }
+    }
+    const letter = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    letter.forEach(letter => {
+        const x=document.querySelector('#'+letter);
+        if(x.classList.contains('grey-col')){
+            x.classList.remove('grey-col');
+        }
+        if(x.classList.contains('green-col')){
+            x.classList.remove('green-col');
+        }
+        if(x.classList.contains('yellow-col')){
+            x.classList.remove('yellow-col');
+        }
+        if(x.classList.contains('fli[')){
+            x.classList.remove('flip');
+        }
+    });
+    getWord();
+    currentRow=0;
+    currentCol=0;
+}
 const addLetter=(letter)=>{
     if(currentRow<6 && currentCol<5){
         const curr=document.getElementById('guessRow-'+currentRow+'-tile-'+currentCol);
@@ -81,12 +122,14 @@ const checkWord=()=>{
                 if(str===word){
                     showMessage('Magnificient!');
                     isGameOver=true;
+                    setTimeout(clearBoard(),2000);
                     return;
                 }
                 else{
                     if(currentRow>=5){
                         isGameOver=false;
                         showMessage('Game Over! Word is '+word);
+                        setTimeout(clearBoard(),2000);
                     }
                     else{
                         currentRow++;
