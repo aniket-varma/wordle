@@ -6,12 +6,18 @@ const keys=[
 ]
 let word;
 
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '29e44d88b7mshfa4774b1d70a678p166cfdjsne8236fba73ce',
+		'X-RapidAPI-Host': 'random-words5.p.rapidapi.com'
+	}
+};
+
 const getWord = () => {
-    fetch('https://random-word-api.herokuapp.com/word?length=5').then(response => {
-        return response.json();
-    }).then(json => {
-        // console.log(json);
+    fetch('https://random-words5.p.rapidapi.com/getMultipleRandom?count=5&wordLength=5', options).then(response => response.json()).then(json => {
         word=json[0].toUpperCase();
+        console.log(word);
     }).catch(err=> console.log(err));
 }
 getWord();
