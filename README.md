@@ -17,6 +17,6 @@
 
 ## APIs Used
 
-- Random Word Generator API: https://random-word-api.herokuapp.com/home
+- Random Word Generator API: https://rapidapi.com/sheharyar566/api/random-words5/
 - Word Dictionary API: https://dictionaryapi.dev/
 
