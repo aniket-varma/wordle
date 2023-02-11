@@ -13,11 +13,19 @@ const options = {
 		'X-RapidAPI-Host': 'random-words5.p.rapidapi.com'
 	}
 };
+const options2 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '29e44d88b7mshfa4774b1d70a678p166cfdjsne8236fba73ce',
+		'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com'
+	}
+};
+
 
 const getWord = () => {
     fetch('https://random-words5.p.rapidapi.com/getMultipleRandom?count=5&wordLength=5', options).then(response => response.json()).then(json => {
         word=json[0].toUpperCase();
-        console.log(word);
+        //console.log(word);
     }).catch(err=> console.log(err));
 }
 getWord();
@@ -118,11 +126,12 @@ const addLetter=(letter)=>{
         currentCol++;
     }
 }
+
 const checkWord=()=>{
     if(currentCol==5){
         const guess=guessRows[currentRow].join('');
-        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${guess}`).then(response => response.json() ).then(json =>{
-            if(json[0]!==undefined){
+        fetch(`https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=${guess}`, options2).then(response => response.json()).then(json =>{
+            if(json.list.length!==0){
                 let str=guess;
                 addColor();
                 if(str===word){
