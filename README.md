@@ -18,5 +18,5 @@
 ## APIs Used
 
 - Random Word Generator API: https://rapidapi.com/sheharyar566/api/random-words5/
-- Word Dictionary API: https://dictionaryapi.dev/
+- Word Dictionary API: https://rapidapi.com/community/api/urban-dictionary/
 
